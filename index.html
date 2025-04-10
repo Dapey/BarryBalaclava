@@ -5,37 +5,59 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>$BARRY - Barry Balaclava</title>
   <style>
-    /* Reset and full height setup */
+    /* Basic Reset & Full Height Setup */
     html, body {
       margin: 0;
       padding: 0;
       height: 100%;
       overflow: hidden;
       font-family: Arial, sans-serif;
-      background-color: #FFEB3B; /* Bright yellow background */
+      background-color: #FFEB3B; /* Bright yellow */
     }
-
-    /* Background layer: animated moving background image */
-    #background-image {
-      background: url('path_to_your_barry_scooter_image.png') repeat-x; /* Replace with your image path */
+    
+    /* Moving trees scenic background layer */
+    #moving-trees {
+      background: url('path_to_your_trees_image.png') repeat-x; /* Replace with your trees image */
+      background-size: cover;  /* Adjust as needed */
       position: absolute;
       top: 0;
       left: 0;
       width: 200%;
       height: 100%;
-      animation: moveRightToLeft 30s linear infinite;
-      opacity: 0.5; /* Slight transparency so content is clear */
-      z-index: -1;
+      animation: moveTrees 60s linear infinite;
+      z-index: -2; /* Behind other content */
+      opacity: 0.7; /* Optional: for a subtle effect */
     }
-
-    @keyframes moveRightToLeft {
+    
+    @keyframes moveTrees {
       from { transform: translateX(0); }
       to   { transform: translateX(-50%); }
     }
-
-    /* Main container styled to center content */
+    
+    /* Barry on a scooter image layer */
+    #barry-scooter {
+      background: url('path_to_your_barry_scooter_image.png') no-repeat center center; /* Replace with your Barry image */
+      background-size: contain;
+      position: absolute;
+      bottom: 50px; /* Adjust vertical placement */
+      left: 50%;
+      transform: translateX(-50%);
+      width: 300px;  /* Adjust size as needed */
+      height: 200px; /* Adjust size as needed */
+      z-index: -1;   /* Sits above the trees background */
+      animation: driveScooter 30s linear infinite;
+    }
+    
+    /* Simple horizontal animation for Barry – adjust as needed */
+    @keyframes driveScooter {
+      from { transform: translateX(-50%) translateY(0); }
+      to   { transform: translateX(calc(-50% + 50px)) translateY(0); }
+    }
+    
+    /* Main Content Container */
     .container {
       position: relative;
+      z-index: 1;
       height: 100%;
       display: flex;
       flex-direction: column;
@@ -44,8 +66,8 @@
       text-align: center;
       padding: 20px;
     }
-
-    /* Big buy button styling */
+    
+    /* Buy Button Styles */
     .buy-button {
       font-size: 2em;
       padding: 20px 40px;
@@ -60,8 +82,8 @@
     .buy-button:hover {
       background-color: #444;
     }
-
-    /* Coin code section styling */
+    
+    /* Coin Code Section & Copy Button */
     .coin-code {
       background-color: #fff;
       border: 2px solid #000;
@@ -72,7 +94,6 @@
       display: inline-flex;
       align-items: center;
     }
-    
     .copy-button {
       font-size: 1em;
       margin-left: 10px;
@@ -86,8 +107,8 @@
     .copy-button:hover {
       background-color: #f0f0f0;
     }
-
-    /* Twitter link styling */
+    
+    /* Twitter Link Styles */
     .twitter-link {
       font-size: 1.2em;
       margin-top: 20px;
@@ -100,27 +121,30 @@
   </style>
 </head>
 <body>
-  <!-- Animated Background -->
-  <div id="background-image"></div>
-
-  <!-- Main Content Container -->
+  <!-- Moving Trees Background -->
+  <div id="moving-trees"></div>
+  
+  <!-- Barry on a Scooter -->
+  <div id="barry-scooter"></div>
+  
+  <!-- Main Content -->
   <div class="container">
     <!-- Big Buy Button -->
     <button class="buy-button">BUY $BARRY</button>
-
-    <!-- Coin Code Section with Copy Button -->
+    
+    <!-- Coin Code Section with a Copy Button -->
     <div class="coin-code">
       0xBARRYB3L04C4VA
       <button class="copy-button" onclick="copyCode()">Copy Code</button>
     </div>
-
+    
     <!-- Twitter Link -->
     <a class="twitter-link" href="https://twitter.com/FatSatsBarry" target="_blank">
       Follow us on Twitter
     </a>
   </div>
-
-  <!-- JavaScript for copy-to-clipboard functionality -->
+  
+  <!-- JavaScript for Copy-to-Clipboard Functionality -->
   <script>
     function copyCode() {
       const coinCode = "0xBARRYB3L04C4VA";
