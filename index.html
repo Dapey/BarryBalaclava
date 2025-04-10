@@ -12,21 +12,23 @@
       height: 100%;
       overflow: hidden;
       font-family: Arial, sans-serif;
-      background-color: #FFEB3B; /* Bright yellow */
+      background-color: #FFEB3B; /* Bright yellow background */
     }
     
-    /* Moving trees scenic background layer */
+    /* Moving Trees Scenic Background Layer */
     #moving-trees {
-      background: url('path_to_your_trees_image.png') repeat-x; /* Replace with your trees image */
-      background-size: cover;  /* Adjust as needed */
+      /* Replace with your trees background image if available.
+         For example: url('treesBG.png') */
+      background: url('path_to_your_trees_image.png') repeat-x;
+      background-size: cover;
       position: absolute;
       top: 0;
       left: 0;
       width: 200%;
       height: 100%;
       animation: moveTrees 60s linear infinite;
-      z-index: -2; /* Behind other content */
-      opacity: 0.7; /* Optional: for a subtle effect */
+      z-index: -2;
+      opacity: 0.7;
     }
     
     @keyframes moveTrees {
@@ -34,24 +36,24 @@
       to   { transform: translateX(-50%); }
     }
     
-    /* Barry on a scooter image layer */
+    /* Barry on a Scooter Image Layer */
     #barry-scooter {
-      background: url('BarryBalaclava.png') no-repeat center center; /* Replace with your Barry image */
+      background: url('BarryBalaclava.png') no-repeat center center;
       background-size: contain;
       position: absolute;
-      bottom: 50px; /* Adjust vertical placement */
+      bottom: 50px;  /* Adjust vertical placement as needed */
       left: 50%;
       transform: translateX(-50%);
-      width: 300px;  /* Adjust size as needed */
-      height: 200px; /* Adjust size as needed */
-      z-index: -1;   /* Sits above the trees background */
+      width: 300px;   /* Adjust size as needed */
+      height: 200px;  /* Adjust size as needed */
+      z-index: -1;
       animation: driveScooter 30s linear infinite;
     }
     
-    /* Simple horizontal animation for Barry – adjust as needed */
+    /* Simple horizontal animation for Barry (feel free to tweak) */
     @keyframes driveScooter {
-      from { transform: translateX(-50%) translateY(0); }
-      to   { transform: translateX(calc(-50% + 50px)) translateY(0); }
+      from { transform: translateX(-50%); }
+      to   { transform: translateX(calc(-50% + 50px)); }
     }
     
     /* Main Content Container */
@@ -67,7 +69,7 @@
       padding: 20px;
     }
     
-    /* Buy Button Styles */
+    /* Big Buy Button Styles */
     .buy-button {
       font-size: 2em;
       padding: 20px 40px;
@@ -121,10 +123,10 @@
   </style>
 </head>
 <body>
-  <!-- Moving Trees Background -->
+  <!-- Moving Trees Background (optional) -->
   <div id="moving-trees"></div>
   
-  <!-- Barry on a Scooter -->
+  <!-- Barry on a Scooter Image -->
   <div id="barry-scooter"></div>
   
   <!-- Main Content -->
@@ -132,7 +134,7 @@
     <!-- Big Buy Button -->
     <button class="buy-button">BUY $BARRY</button>
     
-    <!-- Coin Code Section with a Copy Button -->
+    <!-- Coin Code Section with Copy Button -->
     <div class="coin-code">
       0xBARRYB3L04C4VA
       <button class="copy-button" onclick="copyCode()">Copy Code</button>
